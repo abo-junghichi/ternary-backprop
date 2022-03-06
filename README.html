@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>README</title>
+</head>
+<body>
+
+<h1>Training Binarized Neural Networks with gradients constraind to -1,0,+1</h1>
+
+<p>This code demonstrates a method to train Binarized Neural Networks
+with distnases form step-threashold of activation funtion,
+which normalization turn into gradients constraind to -1,0,+1.
+And, it represents each weight with a integer-accumlator
+rather than froating point number.
+So this method requires only light operatons at training-time,
+which is even supported by instruction sets for microcontrollers
+such as RISC-V RV32I.</p>
+
+<h2>How to approximate normalized gradients of step-function to -1,0,+1</h2>
+
+<p>This code assume, step-function for negative input is approximated
+by exponentiation whose base goes to infinite number.
+So when gradients are normalized by any method,
+gradients become 0 except nearest one by threshold of step-function.
+Since infinite numbers are agnostic for addition and multiplication,
+the gradients remained non-zero can be treated as whatever.
+The method treats them at easiest way as if they were -1 or +1.</p>
+
+<h2>How to test</h2>
+
+<p><code>
+$ make
+</code></p>
+
+<p>and it downloads
+<a href="http://yann.lecun.com/exdb/mnist/">the MNIST database</a>
+then begin learning.</p>
+
+<h2>References</h2>
+
+<p><a href="https://arxiv.org/abs/1602.02830">Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1</a></p>
+
+</body>
+</html>
