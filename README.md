@@ -19,7 +19,6 @@ the gradients remained non-zero can be treated as whatever.
 The method treats them at easiest way as if they were -1 or +1.
 
 ## How to test
-
 ```
 $ make
 ```
@@ -27,6 +26,8 @@ $ make
 and it downloads
 [the MNIST database](http://yann.lecun.com/exdb/mnist/)
 then begin learning.
+Though this code is tested only at x86, it should work
+at any environment of [Gentoo Linux](https://www.gentoo.org/downloads/).
 
 ## References
 [Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1](https://arxiv.org/abs/1602.02830)
